@@ -114,14 +114,14 @@ const WeatherDashboard = () => {
     : Object.values(mockRecommendations).flat();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 p-8">
-      <div className="container mx-auto space-y-8">
-        <div className="flex justify-between items-center bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 sm:p-6 md:p-8">
+      <div className="container mx-auto space-y-4 sm:space-y-6 md:space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-lg">
           <div>
-            <h1 className="text-4xl font-bold text-blue-900 dark:text-blue-100">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100">
               Noma AI
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">
               Smart Farming Insights for Bali, Nigeria | Noma (farming in Hausa)
             </p>
           </div>
@@ -132,7 +132,7 @@ const WeatherDashboard = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           <WeatherCard
             title="Temperature"
             icon={ThermometerSun}
@@ -171,20 +171,20 @@ const WeatherDashboard = () => {
           />
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-          <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-lg">
+          <h2 className="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-100 mb-3 sm:mb-4">
             {`${getActivityLabel(selectedActivity)} Recommendations`}
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {filteredRecommendations.map((rec, index) => (
               <div
                 key={rec.id}
-                className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors bg-white dark:bg-gray-800"
+                className="p-3 sm:p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors bg-white dark:bg-gray-800"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <p className="text-gray-900 dark:text-gray-100 flex-grow">{rec.recommendation}</p>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+                  <p className="text-sm sm:text-base text-gray-900 dark:text-gray-100 flex-grow">{rec.recommendation}</p>
                   <div className={cn(
-                    "px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap",
+                    "px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap",
                     rec.priority === 'high'
                       ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100'
                       : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-100'
@@ -192,11 +192,11 @@ const WeatherDashboard = () => {
                     {rec.priority} priority
                   </div>
                 </div>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-2 sm:mt-3 flex flex-wrap gap-1.5 sm:gap-2">
                   {rec.weatherFactors.map((factor, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm font-medium"
+                      className="px-2 py-0.5 sm:py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-xs sm:text-sm font-medium"
                     >
                       {factor}
                     </span>
